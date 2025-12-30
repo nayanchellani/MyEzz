@@ -330,7 +330,7 @@ const Sidebar = ({ selectedCuisines, setSelectedCuisines, isOpen, onClose, showF
 };
 const RestaurantCard = ({ name, distance, cuisines, rating, reviews, delivery_time, image_url, onClick, isFavorite, onToggleFavorite }) => (
     // The props are updated to include 'image_url' and 'delivery_time'
-    <div onClick={onClick} className="bg-[hsl(var(--card))] text-[hsl(var(--card-foreground))] rounded-2xl shadow-md overflow-hidden group hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] cursor-pointer border border-gray-100 dark:border-gray-800 hover:border-orange-200 dark:hover:border-orange-800 h-full flex flex-col">
+    <div onClick={onClick} className="bg-[hsl(var(--card))] text-[hsl(var(--card-foreground))] rounded-2xl shadow-lg dark:shadow-md overflow-hidden group hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] cursor-pointer border-2 border-gray-200 dark:border-gray-800 hover:border-orange-300 dark:hover:border-orange-800 h-full flex flex-col">
         <div className="relative overflow-hidden bg-gradient-to-br from-gray-100 to-gray-50 dark:from-gray-800 dark:to-gray-900">
             {/* FIXED: The src attribute now correctly uses the 'image_url' prop */}
             <img src={image_url} alt={name} className="w-full h-44 sm:h-48 object-cover group-hover:scale-110 transition-transform duration-700 ease-out" onError={(e) => { e.target.onerror = null; e.target.src = 'https://placehold.co/600x400/cccccc/ffffff?text=Image+Missing'; }} />
@@ -378,7 +378,7 @@ const RestaurantCard = ({ name, distance, cuisines, rating, reviews, delivery_ti
                 </div>
             </div>
             {/* Primary Action Button */}
-            <button className="w-full mt-4 py-2 bg-orange-100 text-orange-600 hover:bg-orange-500 hover:text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-md hover:scale-[1.02] transform">
+            <button className="w-full mt-4 py-2 bg-orange-500 dark:bg-orange-100 text-white dark:text-orange-600 hover:bg-orange-600 dark:hover:bg-orange-500 dark:hover:text-white font-semibold rounded-lg transition-all duration-300 hover:shadow-lg hover:scale-[1.02] transform shadow-md">
                 View Menu
             </button>
         </div>
@@ -813,16 +813,16 @@ const RestaurantMenuPage = ({ restaurant, onBack, cartItems, setCartItems, searc
                         <h3 className="text-xl sm:text-2xl font-bold mb-5 text-gray-800 dark:text-gray-100">Categories</h3>
                         <div className="flex space-x-4 overflow-x-auto pb-4 -mb-4 scrollbar-hide">
                             <button onClick={() => setSelectedCategory('All')} className={`flex-shrink-0 text-center p-3 rounded-xl transition-all duration-200 ${selectedCategory === 'All' ? 'bg-orange-50 dark:bg-orange-900/20' : 'hover:bg-gray-50 dark:hover:bg-gray-800'}`}>
-                                <div className={`w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center rounded-full mx-auto mb-2.5 border-2 shadow-sm ${selectedCategory === 'All' ? 'border-orange-500 bg-orange-50 dark:bg-orange-900/30 ring-2 ring-orange-200 dark:ring-orange-800' : 'border-gray-200 dark:border-gray-700 bg-gray-100 dark:bg-gray-800'}`}>
+                                <div className={`w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center rounded-full mx-auto mb-2.5 transition-all duration-200 ${selectedCategory === 'All' ? 'bg-orange-100 dark:bg-orange-900/30 border-2 border-orange-300 dark:border-orange-800' : 'border-2 border-gray-200 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 shadow-md'}`}>
                                     <div className="w-full h-full rounded-full flex items-center justify-center">
-                                        <span className="text-base sm:text-lg font-bold text-gray-700 dark:text-gray-200">All</span>
+                                        <span className={`text-base sm:text-lg font-bold ${selectedCategory === 'All' ? 'text-orange-600 dark:text-gray-200' : 'text-gray-700 dark:text-gray-200'}`}>All</span>
                                     </div>
                                 </div>
                                 <span className={`text-xs sm:text-sm font-semibold ${selectedCategory === 'All' ? 'text-orange-600 dark:text-orange-400' : 'text-gray-600 dark:text-gray-300'}`}>All</span>
                             </button>
                             {availableCategories.map((cat) => (
                                 <button key={cat.name} onClick={() => setSelectedCategory(cat.name)} className={`flex-shrink-0 text-center p-3 rounded-xl transition-all duration-200 ${selectedCategory === cat.name ? 'bg-orange-50 dark:bg-orange-900/20' : 'hover:bg-gray-50 dark:hover:bg-gray-800'}`}>
-                                    <div className={`w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto mb-2.5 border-2 shadow-sm overflow-hidden ${selectedCategory === cat.name ? 'border-orange-500 ring-2 ring-orange-200 dark:ring-orange-800' : 'border-gray-200 dark:border-gray-700'}`}>
+                                    <div className={`w-20 h-20 sm:w-24 sm:h-24 rounded-full mx-auto mb-2.5 border-2 overflow-hidden transition-all duration-200 ${selectedCategory === cat.name ? 'border-orange-500 ring-2 ring-orange-200 dark:ring-orange-800' : 'border-gray-200 dark:border-gray-700 shadow-md'}`}>
                                         {/* FIXED: The <img> tag now correctly uses 'cat.image_url' */}
                                         <img src={cat.image_url} alt={cat.name} className="w-full h-full object-cover" />
                                     </div>
@@ -849,7 +849,7 @@ const RestaurantMenuPage = ({ restaurant, onBack, cartItems, setCartItems, searc
                                 const quantity = cartItem?.quantity || 0;
                                 
                                 return (
-                                    <div key={item.id} className="flex justify-between items-center p-4 rounded-lg bg-gray-50 dark:bg-gray-800">
+                                    <div key={item.id} className="flex justify-between items-center p-4 rounded-lg bg-white dark:bg-gray-800 shadow-sm border border-gray-200 dark:border-gray-700">
                                         <div>
                                             <h4 className="font-semibold text-gray-800 dark:text-gray-100">{item.name}</h4>
                                             {item.price && <p className="text-sm text-gray-500 dark:text-gray-400">₹{item.price}</p>}
@@ -858,7 +858,7 @@ const RestaurantMenuPage = ({ restaurant, onBack, cartItems, setCartItems, searc
                                             quantity === 0 ? (
                                                 <button 
                                                     onClick={() => addToCart(item)} 
-                                                    className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg font-semibold transition-all duration-200 shadow-sm hover:shadow-md"
+                                                    className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg font-semibold transition-all duration-200 shadow-sm hover:shadow-md hover:scale-[1.02] dark:hover:scale-100"
                                                 >
                                                     ADD
                                                 </button>
