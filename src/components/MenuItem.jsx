@@ -38,19 +38,19 @@ function MenuItem({ item, vendor, addToCart, cart, removeFromCart }) {
 
   return (
     <motion.div
-      className="bg-white border border-gray-100 rounded-lg p-4 shadow-sm hover:shadow-md flex justify-between items-start gap-4"
+      className="bg-bg-surface border border-gray-100 dark:border-gray-800 rounded-xl p-4 shadow-sm hover:shadow-lg flex justify-between items-start gap-4 transition-all duration-300 hover:scale-[1.01]"
       initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
     >
       <div className="flex-1">
         <div className="flex items-start gap-3">
-          <div className="w-16 h-16 rounded-md bg-gray-100 grid place-items-center text-gray-600 font-semibold">
+          <div className="w-16 h-16 rounded-lg bg-gray-200 dark:bg-gray-700 grid place-items-center text-text-secondary font-semibold text-sm">
             {item.name.split(" ").slice(0,2).map(n=>n[0]).join("")}
           </div>
           <div>
-            <h5 className="font-medium text-gray-800">{item.name}</h5>
-            {item.description && <p className="text-sm text-gray-500 mt-1">{item.description}</p>}
-            <div className="mt-2 text-sky-700 font-bold">
+            <h5 className="font-semibold text-text-primary">{item.name}</h5>
+            {item.description && <p className="text-sm text-text-secondary mt-1">{item.description}</p>}
+            <div className="mt-2 text-value-green dark:text-emerald-green font-bold">
               {typeof item.price === "object"
                 ? Object.entries(item.price).map(([k, v]) => `${k}: ₹${v}`).join(" / ")
                 : `₹${item.price}`}
@@ -60,8 +60,12 @@ function MenuItem({ item, vendor, addToCart, cart, removeFromCart }) {
 
         {priceKeys.length > 0 && (
           <div className="mt-3 flex gap-2 items-center">
-            <label className="text-sm text-gray-600">Portion</label>
-            <select className="border rounded px-2 py-1 text-sm" value={selectedPortion} onChange={(e) => setSelectedPortion(e.target.value)}>
+            <label className="text-sm text-text-secondary">Portion</label>
+            <select 
+              className="border border-gray-300 dark:border-gray-600 rounded-lg px-2 py-1 text-sm bg-bg-main text-text-primary focus:ring-2 focus:ring-brand-primary focus:border-transparent" 
+              value={selectedPortion} 
+              onChange={(e) => setSelectedPortion(e.target.value)}
+            >
               {priceKeys.map(k => <option key={k} value={k}>{k}</option>)}
             </select>
           </div>
@@ -72,7 +76,7 @@ function MenuItem({ item, vendor, addToCart, cart, removeFromCart }) {
         {quantity === 0 ? (
           <button
             onClick={handleAdd}
-            className="bg-sky-600 hover:bg-sky-700 text-white px-6 py-2 rounded-lg font-semibold transition-all duration-200 shadow-sm hover:shadow-md"
+            className="zomato-btn-primary px-6 py-2 rounded-lg font-bold transition-all duration-200 shadow-lg hover:shadow-xl active:scale-95"
           >
             ADD
           </button>
@@ -80,22 +84,26 @@ function MenuItem({ item, vendor, addToCart, cart, removeFromCart }) {
           <div className="flex items-center gap-1">
             <button
               onClick={handleDecrement}
-              className="border-2 border-sky-600 text-sky-600 hover:text-white hover:bg-sky-600 w-8 h-8 rounded-md transition-all duration-200 font-bold text-xl flex items-center justify-center active:scale-90"
+              className="border-2 border-brand-primary text-brand-primary hover:text-white hover:bg-brand-primary w-8 h-8 rounded-md transition-all duration-200 font-bold text-xl flex items-center justify-center active:scale-90"
             >
               −
             </button>
-            <span className="text-sky-700 font-bold px-3 min-w-[2.5rem] text-center">
+            <span className="text-brand-primary font-bold px-3 min-w-[2.5rem] text-center">
               {quantity}
             </span>
             <button
               onClick={handleIncrement}
-              className="border-2 border-sky-600 text-sky-600 hover:text-white hover:bg-sky-600 w-8 h-8 rounded-md transition-all duration-200 font-bold text-xl flex items-center justify-center active:scale-90"
+              className="border-2 border-brand-primary text-brand-primary hover:text-white hover:bg-brand-primary w-8 h-8 rounded-md transition-all duration-200 font-bold text-xl flex items-center justify-center active:scale-90"
             >
               +
             </button>
           </div>
         )}
-        <div className="text-xs text-gray-500">{item.jain ? "Jain" : ""}</div>
+        {item.jain && (
+          <div className="text-xs px-2 py-1 rounded-full bg-emerald-green/10 text-emerald-green font-medium">
+            Jain
+          </div>
+        )}
       </div>
     </motion.div>
   );

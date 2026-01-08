@@ -103,7 +103,7 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-screen flex">
+    <div className="min-h-screen flex bg-bg-main">
       <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden">
         <img 
           src={bgImage} 
@@ -112,20 +112,20 @@ export default function Register() {
         />
       </div>
 
-      <div className="w-full lg:w-1/2 flex items-center justify-center px-6 py-12 bg-gray-50">
+      <div className="w-full lg:w-1/2 flex items-center justify-center px-6 py-12 bg-bg-surface">
         <div className="w-full max-w-md">
           <div className="lg:hidden text-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-800 mb-2">MyEzz</h1>
-            <p className="text-gray-600">Delicious food delivered to your doorstep</p>
+            <h1 className="text-3xl font-bold text-text-primary mb-2">MyEzz</h1>
+            <p className="text-text-secondary">Delicious food delivered to your doorstep</p>
           </div>
 
           <div className="hidden lg:block mb-8">
-            <h2 className="text-3xl font-bold text-gray-800 mb-2">Create Account</h2>
-            <p className="text-gray-600">Join MyEzz and start ordering delicious food</p>
+            <h2 className="text-3xl font-bold text-text-primary mb-2">Create Account</h2>
+            <p className="text-text-secondary">Join MyEzz and start ordering delicious food</p>
           </div>
 
           {error && (
-            <div className="mb-6 p-4 bg-red-50 border border-red-200 text-red-700 rounded-lg">
+            <div className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-400 rounded-xl">
               <div className="flex items-center">
                 <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
@@ -138,11 +138,11 @@ export default function Register() {
           <button
             onClick={handleGoogleSignUp}
             disabled={googleLoading}
-            className="w-full flex items-center justify-center gap-3 bg-white hover:bg-gray-50 disabled:bg-gray-100 text-gray-700 py-4 px-6 rounded-xl text-lg font-medium shadow-sm border border-gray-200 transition-all duration-300 hover:shadow-lg hover:scale-[1.02] disabled:cursor-not-allowed disabled:hover:scale-100 mb-6"
+            className="w-full flex items-center justify-center gap-3 bg-white dark:bg-bg-surface hover:bg-gray-50 dark:hover:bg-gray-800 disabled:bg-gray-100 dark:disabled:bg-gray-800 text-text-primary py-4 px-6 rounded-xl text-lg font-medium shadow-sm border border-gray-200 dark:border-gray-700 transition-all duration-300 hover:shadow-lg hover:scale-[1.02] disabled:cursor-not-allowed disabled:hover:scale-100 mb-6"
           >
             {googleLoading ? (
               <>
-                <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-gray-600"></div>
+                <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-brand-primary"></div>
                 Creating account...
               </>
             ) : (
@@ -158,14 +158,14 @@ export default function Register() {
           </button>
 
           <div className="my-6 flex items-center">
-            <div className="flex-1 border-t border-gray-200"></div>
-            <span className="px-4 text-gray-500 text-sm">or</span>
-            <div className="flex-1 border-t border-gray-200"></div>
+            <div className="flex-1 border-t border-gray-200 dark:border-gray-700"></div>
+            <span className="px-4 text-text-secondary text-sm">or</span>
+            <div className="flex-1 border-t border-gray-200 dark:border-gray-700"></div>
           </div>
 
           <form onSubmit={handleRegister} className="space-y-6">
             <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="name" className="block text-sm font-medium text-text-primary mb-2">
                 Full Name
               </label>
               <input
@@ -174,13 +174,13 @@ export default function Register() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Enter your full name"
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200 text-gray-900 bg-white"
+                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all duration-200 text-text-primary bg-bg-main"
                 required
               />
             </div>
 
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="email" className="block text-sm font-medium text-text-primary mb-2">
                 Email Address
               </label>
               <input
@@ -189,13 +189,13 @@ export default function Register() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email address"
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200 text-gray-900 bg-white"
+                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all duration-200 text-text-primary bg-bg-main"
                 required
               />
             </div>
 
             <div>
-              <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="phone" className="block text-sm font-medium text-text-primary mb-2">
                 Phone Number
               </label>
               <input
@@ -204,10 +204,10 @@ export default function Register() {
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="+91XXXXXXXXXX"
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200 text-gray-900 bg-white"
+                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-brand-primary focus:border-transparent transition-all duration-200 text-text-primary bg-bg-main"
                 required
               />
-              <p className="mt-1 text-xs text-gray-500">Enter your phone number with country code</p>
+              <p className="mt-1 text-xs text-text-secondary">Enter your phone number with country code</p>
             </div>
 
             <div id="recaptcha-container" className="flex justify-center"></div>
@@ -215,7 +215,7 @@ export default function Register() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-orange-500 hover:bg-orange-600 disabled:bg-orange-300 text-white py-4 px-6 rounded-xl text-lg font-medium shadow-sm transition-all duration-300 hover:shadow-md disabled:cursor-not-allowed"
+              className="zomato-btn-primary w-full py-4 px-6 rounded-xl text-lg font-bold shadow-lg transition-all duration-300 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-50"
             >
               {loading ? (
                 <div className="flex items-center justify-center">
@@ -229,21 +229,21 @@ export default function Register() {
           </form>
 
           <div className="mt-8 text-center">
-            <p className="text-gray-600">
+            <p className="text-text-secondary">
               Already have an account?{" "}
               <button 
                 onClick={handleSignInClick}
-                className="text-orange-500 hover:text-orange-600 font-medium transition-all duration-300 relative inline-block group"
+                className="text-brand-primary hover:text-brand-primary/80 font-medium transition-all duration-300 relative inline-block group"
               >
                 <span className="relative">
                   Sign in
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-brand-primary group-hover:w-full transition-all duration-300"></span>
                 </span>
               </button>
             </p>
           </div>
 
-          <div className="mt-8 text-center text-sm text-gray-500">
+          <div className="mt-8 text-center text-sm text-text-secondary">
             <p>By creating an account, you agree to our Terms of Service and Privacy Policy</p>
           </div>
         </div>

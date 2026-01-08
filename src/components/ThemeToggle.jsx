@@ -25,12 +25,10 @@ const MoonIcon = ({ className }) => (
 const ThemeToggle = ({ className = '' }) => {
     const { theme, toggleTheme } = useTheme();
 
-    // Log current theme on component mount and when theme changes
     useEffect(() => {
         console.log('ThemeToggle rendered with theme:', theme);
     }, [theme]);
 
-    // Enhanced click handler with debugging
     const handleToggleClick = (e) => {
         e.preventDefault();
         console.log('Theme toggle button clicked');
@@ -42,15 +40,16 @@ const ThemeToggle = ({ className = '' }) => {
     return (
         <button
             onClick={handleToggleClick}
-            className={`relative inline-flex items-center h-7 w-14 rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 ${isDark ? 'bg-gray-700' : 'bg-orange-400'
-                } ${className}`}
+            className={`relative inline-flex items-center h-7 w-14 rounded-full transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-brand-primary focus:ring-offset-2 ${
+                isDark ? 'bg-gray-700' : 'bg-[#E23744]'
+            } ${className}`}
             aria-label="Toggle theme"
             data-testid="theme-toggle"
         >
             {/* Toggle Track with Icons */}
             <div className="absolute inset-0 flex items-center justify-between px-1.5">
                 <SunIcon className={`${isDark ? 'text-gray-400' : 'text-white'} transition-colors duration-300`} />
-                <MoonIcon className={`${isDark ? 'text-white' : 'text-orange-200'} transition-colors duration-300`} />
+                <MoonIcon className={`${isDark ? 'text-white' : 'text-red-200'} transition-colors duration-300`} />
             </div>
 
             {/* Sliding Toggle Circle */}
@@ -67,9 +66,9 @@ const ThemeToggle = ({ className = '' }) => {
                 }}
             >
                 {isDark ? (
-                    <MoonIcon className="text-gray-700" />
+                    <MoonIcon className="text-[#990000]" />
                 ) : (
-                    <SunIcon className="text-orange-500" />
+                    <SunIcon className="text-[#E23744]" />
                 )}
             </motion.div>
         </button>

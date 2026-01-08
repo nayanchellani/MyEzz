@@ -219,9 +219,9 @@ function PaymentPage() {
   if (!customerInfo || !cart || cart.length === 0) {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 dark:bg-gray-900 p-4">
-        <div className="text-center space-y-4 animate-fade-in">
-          <div className="bg-orange-100 dark:bg-orange-900/20 p-6 rounded-full inline-flex mb-2">
-            <Wallet className="w-12 h-12 text-orange-500" />
+        <div className="text-center space-y-4">
+          <div className="bg-red-100 dark:bg-red-900/20 p-6 rounded-full inline-flex mb-2">
+            <Wallet className="w-12 h-12 text-[#E23744] dark:text-[#990000]" />
           </div>
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Your cart is empty</h2>
           <p className="text-gray-500 dark:text-gray-400 max-w-md mx-auto">
@@ -229,7 +229,7 @@ function PaymentPage() {
           </p>
           <button
             onClick={() => navigate("/")}
-            className="mt-4 px-8 py-3 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-xl transition-all duration-300 shadow-lg shadow-orange-200/50 dark:shadow-orange-900/30 transform hover:-translate-y-1"
+            className="mt-4 px-8 py-3 bg-[#E23744] dark:bg-[#990000] hover:opacity-90 text-white font-bold rounded-xl shadow-lg"
           >
             Browse Menu
           </button>
@@ -247,13 +247,13 @@ function PaymentPage() {
         {/* Payment Section */}
         <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-xl overflow-hidden border border-gray-100 dark:border-gray-700 h-fit">
           {/* Header Section */}
-          <div className="bg-gradient-to-br from-orange-500 to-orange-600 p-8 text-white relative overflow-hidden">
+          <div className="bg-gradient-to-br from-[#E23744] to-[#c42f3c] dark:from-[#990000] dark:to-[#7a0000] p-8 text-white relative overflow-hidden">
             <div className="absolute top-0 right-0 -mr-8 -mt-8 w-32 h-32 rounded-full bg-white/10 blur-2xl"></div>
             <div className="absolute bottom-0 left-0 -ml-8 -mb-8 w-24 h-24 rounded-full bg-white/10 blur-2xl"></div>
 
             <div className="relative z-10">
               <h2 className="text-2xl font-bold tracking-tight">Payment Method</h2>
-              <p className="text-orange-100 text-sm mt-1 opacity-90">Select how you'd like to pay</p>
+              <p className="text-red-100 text-sm mt-1 opacity-90">Select how you'd like to pay</p>
             </div>
           </div>
 
@@ -263,21 +263,21 @@ function PaymentPage() {
               {/* Card/UPI Option */}
               <div
                 onClick={() => setMethod("card")}
-                className={`relative flex items-center p-4 rounded-2xl border-2 cursor-pointer transition-all duration-300 group
+                className={`relative flex items-center p-4 rounded-2xl border-2 cursor-pointer group
                   ${method === "card"
-                    ? "border-orange-500 bg-orange-50/50 dark:bg-orange-900/20 shadow-lg scale-[1.02]"
-                    : "border-gray-100 dark:border-gray-700 hover:border-orange-200 dark:hover:border-orange-800 hover:bg-gray-50 dark:hover:bg-gray-800/50"
+                    ? "border-[#E23744] dark:border-[#990000] bg-red-50/50 dark:bg-red-900/20 shadow-lg"
+                    : "border-gray-100 dark:border-gray-700 hover:border-[#E23744]/50 dark:hover:border-[#990000]/50 hover:bg-gray-50 dark:hover:bg-gray-800/50"
                   }`}
               >
-                <div className={`p-3.5 rounded-xl mr-4 transition-colors duration-300 ${method === "card" ? "bg-orange-500 text-white shadow-md" : "bg-gray-100 text-gray-500 dark:bg-gray-700 dark:text-gray-400"}`}>
+                <div className={`p-3.5 rounded-xl mr-4 ${method === "card" ? "bg-[#E23744] dark:bg-[#990000] text-white shadow-md" : "bg-gray-100 text-gray-500 dark:bg-gray-700 dark:text-gray-400"}`}>
                   <CreditCard size={24} />
                 </div>
                 <div className="flex-1">
-                  <h4 className={`font-bold text-base ${method === "card" ? "text-orange-700 dark:text-orange-400" : "text-gray-800 dark:text-gray-200"}`}>Pay Online</h4>
+                  <h4 className={`font-bold text-base ${method === "card" ? "text-[#E23744] dark:text-[#990000]" : "text-gray-800 dark:text-gray-200"}`}>Pay Online</h4>
                   <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">UPI, Cards, Netbanking</p>
                 </div>
                 {method === "card" && (
-                  <div className="bg-orange-500 rounded-full p-1">
+                  <div className="bg-[#E23744] dark:bg-[#990000] rounded-full p-1">
                     <CheckCircle2 className="text-white" size={16} />
                   </div>
                 )}
@@ -286,21 +286,21 @@ function PaymentPage() {
               {/* COD Option */}
               <div
                 onClick={() => setMethod("cod")}
-                className={`relative flex items-center p-4 rounded-2xl border-2 cursor-pointer transition-all duration-300 group
+                className={`relative flex items-center p-4 rounded-2xl border-2 cursor-pointer group
                   ${method === "cod"
-                    ? "border-orange-500 bg-orange-50/50 dark:bg-orange-900/20 shadow-lg scale-[1.02]"
-                    : "border-gray-100 dark:border-gray-700 hover:border-orange-200 dark:hover:border-orange-800 hover:bg-gray-50 dark:hover:bg-gray-800/50"
+                    ? "border-[#E23744] dark:border-[#990000] bg-red-50/50 dark:bg-red-900/20 shadow-lg"
+                    : "border-gray-100 dark:border-gray-700 hover:border-[#E23744]/50 dark:hover:border-[#990000]/50 hover:bg-gray-50 dark:hover:bg-gray-800/50"
                   }`}
               >
-                <div className={`p-3.5 rounded-xl mr-4 transition-colors duration-300 ${method === "cod" ? "bg-orange-500 text-white shadow-md" : "bg-gray-100 text-gray-500 dark:bg-gray-700 dark:text-gray-400"}`}>
+                <div className={`p-3.5 rounded-xl mr-4 ${method === "cod" ? "bg-[#E23744] dark:bg-[#990000] text-white shadow-md" : "bg-gray-100 text-gray-500 dark:bg-gray-700 dark:text-gray-400"}`}>
                   <Wallet size={24} />
                 </div>
                 <div className="flex-1">
-                  <h4 className={`font-bold text-base ${method === "cod" ? "text-orange-700 dark:text-orange-400" : "text-gray-800 dark:text-gray-200"}`}>Cash on Delivery</h4>
+                  <h4 className={`font-bold text-base ${method === "cod" ? "text-[#E23744] dark:text-[#990000]" : "text-gray-800 dark:text-gray-200"}`}>Cash on Delivery</h4>
                   <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Pay at your doorstep</p>
                 </div>
                 {method === "cod" && (
-                  <div className="bg-orange-500 rounded-full p-1">
+                  <div className="bg-[#E23744] dark:bg-[#990000] rounded-full p-1">
                     <CheckCircle2 className="text-white" size={16} />
                   </div>
                 )}
@@ -317,10 +317,10 @@ function PaymentPage() {
             <button
               onClick={handlePay}
               disabled={loading}
-              className={`w-full py-4 text-lg font-bold rounded-2xl shadow-xl transition-all duration-300 transform active:scale-[0.98]
+              className={`w-full py-4 text-lg font-bold rounded-2xl shadow-xl
                 ${loading
                   ? "bg-gray-200 dark:bg-gray-700 text-gray-400 cursor-not-allowed shadow-none"
-                  : "bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white shadow-orange-200/50 dark:shadow-orange-900/30 hover:shadow-orange-300/50"
+                  : "bg-[#E23744] dark:bg-[#990000] hover:opacity-90 text-white shadow-red-200/50 dark:shadow-red-900/30"
                 }`}
             >
               {loading ? (
@@ -354,7 +354,7 @@ function PaymentPage() {
                         {item.quantity} x ₹{item.price}
                         {item.portion && ` • ${item.portion}`}
                       </p>
-                      <p className="text-xs text-orange-600 dark:text-orange-400 mt-1 flex items-center gap-1">
+                      <p className="text-xs text-[#E23744] dark:text-[#990000] mt-1 flex items-center gap-1">
                         <span>🍽️</span>
                         <span className="font-medium">{restaurantName}</span>
                       </p>
@@ -380,7 +380,7 @@ function PaymentPage() {
               </div>
               <div className="flex justify-between text-xl font-bold text-gray-900 dark:text-white pt-4 border-t border-gray-200 dark:border-gray-700">
                 <span>Total</span>
-                <span className="text-orange-600 dark:text-orange-400">₹{total}</span>
+                <span className="text-[#E23744] dark:text-[#990000]">₹{total}</span>
               </div>
             </div>
 
