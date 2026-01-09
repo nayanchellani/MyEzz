@@ -21,7 +21,7 @@ const OrderSuccess = () => {
           <h2 className="text-xl font-bold text-gray-900 dark:text-white">No order found</h2>
           <button
             onClick={() => navigate("/")}
-            className="px-6 py-2 bg-orange-500 text-white rounded-lg hover:bg-orange-600 transition-colors"
+            className="px-6 py-2 bg-[#FF6600] text-white rounded-lg hover:bg-[#E65C00] transition-colors"
           >
             Go Home
           </button>
@@ -39,7 +39,7 @@ const OrderSuccess = () => {
         className="w-full max-w-2xl bg-white dark:bg-gray-800 rounded-3xl shadow-2xl overflow-hidden border border-gray-100 dark:border-gray-700"
       >
         {/* Success Header */}
-        <div className="bg-gradient-to-br from-orange-500 to-orange-600 p-8 text-center text-white relative overflow-hidden">
+        <div className="bg-gradient-to-br from-[#FF6600] to-[#E65C00] p-8 text-center text-white relative overflow-hidden">
           <div className="absolute top-0 right-0 -mr-8 -mt-8 w-32 h-32 rounded-full bg-white/10 blur-2xl"></div>
           <div className="absolute bottom-0 left-0 -ml-8 -mb-8 w-24 h-24 rounded-full bg-white/10 blur-2xl"></div>
 
@@ -49,11 +49,11 @@ const OrderSuccess = () => {
             transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.2 }}
             className="w-20 h-20 bg-white rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg"
           >
-            <CheckCircle className="w-10 h-10 text-orange-500" />
+            <CheckCircle className="w-10 h-10 text-[#FF6600]" />
           </motion.div>
 
           <h1 className="text-3xl font-bold mb-2">Order Placed Successfully!</h1>
-          <p className="text-orange-100 opacity-90">
+          <p className="text-[#FF6600]/80 opacity-90">
             Thank you for choosing MyEzz. Your tasty moments are on the way!
           </p>
         </div>
@@ -61,8 +61,8 @@ const OrderSuccess = () => {
         <div className="p-6 sm:p-8 space-y-8">
           {/* Order Details Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div className="bg-orange-50 dark:bg-orange-900/10 p-4 rounded-2xl border border-orange-100 dark:border-orange-800/30">
-              <p className="text-xs text-orange-600 dark:text-orange-400 font-semibold uppercase tracking-wider mb-1">Order ID</p>
+            <div className="bg-[#FF6600]/10 dark:bg-[#FF6600]/20 p-4 rounded-2xl border border-[#FF6600]/20 dark:border-[#FF6600]/30">
+              <p className="text-xs text-[#FF6600] dark:text-[#FF6600] font-semibold uppercase tracking-wider mb-1">Order ID</p>
               <p className="text-lg font-bold text-gray-900 dark:text-white">#{order.orderId}</p>
             </div>
             <div className="bg-blue-50 dark:bg-blue-900/10 p-4 rounded-2xl border border-blue-100 dark:border-blue-800/30">
@@ -77,7 +77,7 @@ const OrderSuccess = () => {
           {/* Customer Info */}
           <div className="space-y-4">
             <h3 className="text-lg font-bold text-gray-900 dark:text-white flex items-center">
-              <User className="w-5 h-5 mr-2 text-orange-500" />
+              <User className="w-5 h-5 mr-2 text-[#FF6600]" />
               Customer Details
             </h3>
             <div className="bg-gray-50 dark:bg-gray-700/30 rounded-2xl p-5 border border-gray-100 dark:border-gray-700 space-y-3">
@@ -115,7 +115,7 @@ const OrderSuccess = () => {
           {/* Order Items */}
           <div className="space-y-4">
             <h3 className="text-lg font-bold text-gray-900 dark:text-white flex items-center">
-              <ShoppingBag className="w-5 h-5 mr-2 text-orange-500" />
+              <ShoppingBag className="w-5 h-5 mr-2 text-[#FF6600]" />
               Order Summary
             </h3>
             <div className="border border-gray-200 dark:border-gray-700 rounded-2xl overflow-hidden">
@@ -139,7 +139,7 @@ const OrderSuccess = () => {
               <div className="bg-gray-50 dark:bg-gray-700/50 px-4 py-4 border-t border-gray-200 dark:border-gray-700">
                 <div className="flex justify-between items-center">
                   <span className="font-bold text-gray-900 dark:text-white">Total Amount</span>
-                  <span className="text-xl font-bold text-orange-600 dark:text-orange-400">₹{order.total}</span>
+                  <span className="text-xl font-bold text-[#FF6600] dark:text-[#FF6600]">₹{order.total}</span>
                 </div>
                 <div className="flex justify-between items-center mt-2 text-sm">
                   <span className="text-gray-500 dark:text-gray-400">Payment Method</span>
@@ -155,7 +155,7 @@ const OrderSuccess = () => {
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
             <button
               onClick={() => navigate("/")}
-              className="flex-1 flex items-center justify-center px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-bold rounded-xl transition-all duration-300 shadow-lg shadow-orange-200/50 dark:shadow-orange-900/30 transform hover:-translate-y-1"
+              className="flex-1 flex items-center justify-center px-6 py-3 bg-[#FF6600] hover:bg-[#E65C00] text-white font-bold rounded-lg transition-all duration-300 hover:shadow-[0_0_15px_rgba(255,102,0,0.3)] transform hover:-translate-y-1"
             >
               <Home className="w-5 h-5 mr-2" />
               Back to Home

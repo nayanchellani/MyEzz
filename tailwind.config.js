@@ -5,6 +5,15 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Premium Orange Theme
+        'brand-primary': '#FF6600',      // Sunset Orange - action color
+        'brand-secondary': '#E65C00',    // Burnt Amber - hover states
+        'bg-main': '#0B0C10',            // Deep Obsidian - main background
+        'bg-surface': '#1F2833',         // Midnight Slate - cards/surfaces
+        'accent-trust': '#00C805',       // Emerald Green - ratings/stock
+        'text-primary': '#FFFFFF',       // Pure White - headlines
+        'text-secondary': '#94A3B8',     // Slate Gray - metadata
+        
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -18,10 +27,6 @@ export default {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
         },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
         muted: {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
@@ -30,31 +35,23 @@ export default {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
         },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
-        },
-        sky: {
-          50: "#f0f9ff",
-          100: "#e0f2fe",
-          200: "#bae6fd",
-          300: "#7dd3fc",
-          400: "#38bdf8",
-          500: "#0ea5e9",
-          600: "#0284c7",
-          700: "#0369a1",
-          800: "#075985",
-          900: "#0c4a6e",
         },
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        'xl': '12px',
+      },
+      boxShadow: {
+        'orange-glow': '0 0 15px rgba(255, 102, 0, 0.3)',
+        'orange-glow-lg': '0 0 25px rgba(255, 102, 0, 0.4)',
+      },
+      fontFamily: {
+        sans: ['Inter', 'Metropolis', 'system-ui', 'sans-serif'],
       },
     },
   },

@@ -1,48 +1,59 @@
 @import "tailwindcss";
 @variant dark (&:where(.dark, .dark *));
 
+/* Premium Orange Theme - Light Mode */
 :root {
   --background: 0 0% 100%;
-  --foreground: 0 0% 0%;
-  --card: 0 0% 100%;
-  --card-foreground: 222.2 84% 4.9%;
+  --foreground: 220 13% 5%;
+  --card: 210 20% 98%;
+  --card-foreground: 220 13% 5%;
   --popover: 0 0% 100%;
-  --popover-foreground: 222.2 84% 4.9%;
-  --primary: 221.2 83.2% 53.3%;
-  --primary-foreground: 210 40% 98%;
+  --popover-foreground: 220 13% 5%;
+  --primary: 24 100% 50%;
+  --primary-foreground: 0 0% 100%;
   --secondary: 210 40% 96.1%;
-  --secondary-foreground: 222.2 47.4% 11.2%;
+  --secondary-foreground: 220 13% 5%;
   --muted: 210 40% 96.1%;
-  --muted-foreground: 215.4 16.3% 46.9%;
-  --accent: 210 40% 96.1%;
-  --accent-foreground: 222.2 47.4% 11.2%;
-  --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 210 40% 98%;
-  --border: 214.3 31.8% 91.4%;
-  --input: 214.3 31.8% 91.4%;
-  --ring: 221.2 83.2% 53.3%;
+  --muted-foreground: 215 16% 47%;
+  --accent: 24 100% 50%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 214 32% 91%;
+  --input: 214 32% 91%;
+  --ring: 24 100% 50%;
+  
+  /* Premium Orange Color Tokens */
+  --brand-primary: #FF6600;
+  --brand-secondary: #E65C00;
+  --bg-obsidian: #0B0C10;
+  --bg-slate: #1F2833;
+  --accent-green: #00C805;
+  --text-white: #FFFFFF;
+  --text-slate: #94A3B8;
 }
 
+/* Premium Orange Theme - Dark Mode (Deep Obsidian) */
 .dark {
-  --background: 215 28% 17%;
+  --background: 220 18% 4%;
   --foreground: 0 0% 100%;
-  --card: 215 28% 12%;
+  --card: 214 24% 16%;
   --card-foreground: 0 0% 100%;
-  --popover: 215 28% 12%;
-  --popover-foreground: 216 12% 86%;
-  --primary: 215 90% 58%;
-  --primary-foreground: 216 12% 98%;
-  --secondary: 215 20% 24%;
-  --secondary-foreground: 216 12% 84%;
-  --muted: 215 20% 24%;
-  --muted-foreground: 216 12% 70%;
-  --accent: 215 20% 24%;
-  --accent-foreground: 216 12% 84%;
+  --popover: 214 24% 16%;
+  --popover-foreground: 0 0% 100%;
+  --primary: 24 100% 50%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 214 20% 20%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 214 20% 20%;
+  --muted-foreground: 215 19% 65%;
+  --accent: 24 100% 50%;
+  --accent-foreground: 0 0% 100%;
   --destructive: 0 62% 30%;
-  --destructive-foreground: 216 12% 98%;
-  --border: 215 22% 20%;
-  --input: 215 22% 20%;
-  --ring: 215 90% 58%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 214 20% 20%;
+  --input: 214 20% 20%;
+  --ring: 24 100% 50%;
 }
 
 body {

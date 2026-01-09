@@ -127,11 +127,11 @@ export default function Login() {
               Don't have an account?{" "}
               <button 
                 onClick={handleSignUpClick}
-                className="text-orange-500 hover:text-orange-600 font-medium transition-all duration-300 relative inline-block group"
+                className="text-[#FF6600] hover:text-[#E65C00] font-medium transition-all duration-300 relative inline-block group"
               >
                 <span className="relative">
                   Sign up
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FF6600] group-hover:w-full transition-all duration-300"></span>
                 </span>
               </button>
             </p>

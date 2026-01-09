@@ -174,7 +174,7 @@ export default function Register() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Enter your full name"
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200 text-gray-900 bg-white"
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#FF6600] focus:border-transparent transition-all duration-200 text-gray-900 bg-white"
                 required
               />
             </div>
@@ -189,7 +189,7 @@ export default function Register() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email address"
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200 text-gray-900 bg-white"
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#FF6600] focus:border-transparent transition-all duration-200 text-gray-900 bg-white"
                 required
               />
             </div>
@@ -204,7 +204,7 @@ export default function Register() {
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 placeholder="+91XXXXXXXXXX"
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200 text-gray-900 bg-white"
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#FF6600] focus:border-transparent transition-all duration-200 text-gray-900 bg-white"
                 required
               />
               <p className="mt-1 text-xs text-gray-500">Enter your phone number with country code</p>
@@ -215,7 +215,7 @@ export default function Register() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-orange-500 hover:bg-orange-600 disabled:bg-orange-300 text-white py-4 px-6 rounded-xl text-lg font-medium shadow-sm transition-all duration-300 hover:shadow-md disabled:cursor-not-allowed"
+              className="w-full bg-[#FF6600] hover:bg-[#E65C00] disabled:bg-[#FF6600]/50 text-white py-4 px-6 rounded-lg text-lg font-bold shadow-sm transition-all duration-300 hover:shadow-[0_0_15px_rgba(255,102,0,0.3)] disabled:cursor-not-allowed"
             >
               {loading ? (
                 <div className="flex items-center justify-center">
@@ -233,11 +233,11 @@ export default function Register() {
               Already have an account?{" "}
               <button 
                 onClick={handleSignInClick}
-                className="text-orange-500 hover:text-orange-600 font-medium transition-all duration-300 relative inline-block group"
+                className="text-[#FF6600] hover:text-[#E65C00] font-medium transition-all duration-300 relative inline-block group"
               >
                 <span className="relative">
                   Sign in
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 group-hover:w-full transition-all duration-300"></span>
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FF6600] group-hover:w-full transition-all duration-300"></span>
                 </span>
               </button>
             </p>

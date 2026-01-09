@@ -62,7 +62,7 @@ export default function OTPVerification() {
 
   return (
     <div className="min-h-screen flex">
-      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-orange-400 to-red-500 relative overflow-hidden">
+      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-[#FF6600] to-[#E65C00] relative overflow-hidden">
         <div className="relative z-10 flex flex-col justify-center items-center px-12 w-full">
           <div className="text-center mb-8">
             <h1 className="text-6xl font-bold mb-4 text-white drop-shadow-lg">MyEzz</h1>
@@ -130,7 +130,7 @@ export default function OTPVerification() {
                 value={code}
                 onChange={(e) => setCode(e.target.value)}
                 placeholder="Enter 4-6 digit code"
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all duration-200 text-center text-lg font-mono"
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#FF6600] focus:border-transparent transition-all duration-200 text-center text-lg font-mono"
                 maxLength="6"
                 required
               />
@@ -140,7 +140,7 @@ export default function OTPVerification() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-orange-500 hover:bg-orange-600 disabled:bg-orange-300 text-white py-4 px-6 rounded-xl text-lg font-medium shadow-sm transition-all duration-300 hover:shadow-md disabled:cursor-not-allowed"
+              className="w-full bg-[#FF6600] hover:bg-[#E65C00] disabled:bg-[#FF6600]/50 text-white py-4 px-6 rounded-lg text-lg font-bold shadow-sm transition-all duration-300 hover:shadow-[0_0_15px_rgba(255,102,0,0.3)] disabled:cursor-not-allowed"
             >
               {loading ? (
                 <div className="flex items-center justify-center">
@@ -156,7 +156,7 @@ export default function OTPVerification() {
           <div className="mt-8 text-center">
             <button 
               onClick={() => navigate("/register")}
-              className="text-orange-500 hover:text-orange-600 font-medium transition-colors duration-200"
+              className="text-[#FF6600] hover:text-[#E65C00] font-medium transition-colors duration-200"
             >
               ← Back to signup
             </button>
