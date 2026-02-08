@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { verifySmsOtp } from "./authService";
 import { useNavigate } from "react-router-dom";
-import Toast from "../components/Toast";
+import Toast from "../components/Shared/Toast";
 
 export default function OTPVerification() {
   const [code, setCode] = useState("");

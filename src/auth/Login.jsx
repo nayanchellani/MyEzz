@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { signInWithGoogle } from "./authService";
 import { useNavigate } from "react-router-dom";
-import Toast from "../components/Toast";
-import bgImage from "./public/bg.png";
+import Toast from "../components/Shared/Toast";
+
+const bgImage = "/images/auth/bg.png";
 
 export default function Login() {
   const navigate = useNavigate();

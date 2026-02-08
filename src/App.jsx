@@ -1,11 +1,11 @@
 import { Routes, Route, Navigate } from "react-router-dom";
-import HomePage from "./components/homepage.jsx";
-import PaymentPage from "./components/PaymentPage";
-import OrderSuccess from "./components/OrderSuccess";
-import LiveTracking from "./components/LiveTracking";
-import Header from "./components/Header.jsx";
-import SearchPage from "./components/SearchPage.jsx";
-import LandingPage from "./components/LandingPage.jsx";
+import HomePage from "./components/Home/HomePage.jsx";
+import PaymentPage from "./components/Cart/PaymentPage";
+import OrderSuccess from "./components/Cart/OrderSuccess";
+import LiveTracking from "./components/Tracking/LiveTracking";
+import Header from "./components/Home/Header.jsx";
+import SearchPage from "./components/Search/SearchPage.jsx";
+import LandingPage from "./components/Landing/LandingPage.jsx";
 
 // Auth pages
 import Login from "./auth/Login.jsx";
