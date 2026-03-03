@@ -6,6 +6,7 @@ import Toast from "../components/Toast";
 
 const bgImage = "/landing-bg.png"; // Using a textured fallback if needed, or CSS gradients
 const platterImage = "/login_platter.png";
+const desktopPlatterImage = "/desktop_login.png";
 
 export default function AuthPage({ initialMode = "login" }) {
   const navigate = useNavigate();
@@ -72,7 +73,7 @@ export default function AuthPage({ initialMode = "login" }) {
     setError("");
 
     if (mode === "login") {
-      // Mockup shows Email/Password but backend has no Email/Pass auth. 
+
       // We enforce Google sign in or fallback to a toast.
       setToast({ show: true, message: "Email login is under construction. Please use 'Continue with Google'.", type: "error" });
       return;
@@ -101,7 +102,7 @@ export default function AuthPage({ initialMode = "login" }) {
   };
 
   return (
-    <div className="min-h-screen w-full flex flex-col md:flex-row bg-[#FDFBF7] font-sans selection:bg-orange-200">
+    <div className="min-h-screen w-full flex flex-col md:flex-row bg-[#FDFBF7] font-sans selection:bg-orange-200 relative">
 
       {/* 
         TOP/LEFT SECTION (Image & Gradient) 
@@ -111,6 +112,11 @@ export default function AuthPage({ initialMode = "login" }) {
 
         {/* Subtle background texture / blur element (simulating repeating bowls) */}
         <div className="absolute inset-0 opacity-20 pointer-events-none mix-blend-overlay overflow-hidden" style={{ backgroundImage: `url(${platterImage})`, backgroundSize: '150px', filter: 'blur(4px)' }}></div>
+
+        {/* MyEzz Logo centered on orange section - mobile only */}
+        <div className="absolute inset-0 flex items-center justify-center z-[5] md:hidden pointer-events-none">
+          <img src="/Myezz final logo.svg" alt="MyEzz" className="w-28 opacity-30" />
+        </div>
 
         {/* Mock iOS Status Bar for Mobile Preview realism */}
         <div className="absolute top-0 w-full h-12 flex justify-between items-center px-6 text-white text-sm font-semibold z-30 md:hidden pointer-events-none">
@@ -138,32 +144,46 @@ export default function AuthPage({ initialMode = "login" }) {
         {/* Top Right Toggle Link (Mobile Only) */}
         <button
           onClick={toggleMode}
-          className="absolute top-12 right-6 text-white/90 text-sm font-semibold tracking-wider hover:text-white transition-colors z-30 md:hidden"
+          className="absolute top-12 right-6 text-white text-sm font-semibold tracking-wider z-30 md:hidden flex items-center gap-1.5 border border-white/60 rounded-full px-4 py-1.5 hover:bg-white/10 transition-all duration-300"
         >
           {mode === "login" ? "REGISTER" : "LOGIN"}
+          <span className="text-xs">→</span>
         </button>
+        {/* Mobile platter moved to root container for proper stacking */}
 
-        {/* The Platter Image */}
-        <div className="absolute left-1/2 bottom-0 translate-y-[45%] -translate-x-1/2 flex items-center justify-center md:static md:translate-y-0 md:translate-x-0 md:absolute md:top-0 md:bottom-0 md:-left-16 lg:-left-32 z-20 w-[85%] max-w-[280px] md:w-full md:max-w-none md:h-full pointer-events-none">
+        {/* The Desktop Image */}
+        <div className="hidden md:flex absolute inset-0 items-center justify-center z-20 pointer-events-none">
           <img
-            src={platterImage}
+            src={desktopPlatterImage}
             alt="Authentic Indian Thali"
-            className="w-full h-auto object-contain drop-shadow-[0_20px_40px_rgba(0,0,0,0.5)] animate-[pulse_6s_ease-in-out_infinite] md:w-[120%] lg:w-[120%]"
+            className="w-full h-full object-cover"
           />
+          {/* Orange gradient overlay - light */}
+          <div className="absolute inset-0 bg-gradient-to-r from-[#FF6A00]/30 via-[#FF6A00]/15 to-transparent"></div>
         </div>
 
         {/* Mobile Curve SVG Boundary (Bottom out) */}
-        <div className="absolute -bottom-1 w-full h-12 md:hidden pointer-events-none overflow-hidden">
+        <div className="absolute -bottom-1 w-full h-12 md:hidden pointer-events-none overflow-hidden z-20">
           <svg className="absolute bottom-0 w-full h-full" viewBox="0 0 1440 160" preserveAspectRatio="none" fill="#FDFBF7">
             <path d="M0,160 L1440,160 L1440,80 C1100,160 340,160 0,60 Z" />
           </svg>
         </div>
 
         {/* Desktop Curve SVG Boundary (Right side vertical curve) */}
-        <svg className="absolute -right-1 top-0 h-full w-24 hidden md:block pointer-events-none" viewBox="0 0 160 1440" preserveAspectRatio="none" fill="#FDFBF7">
+        <svg className="absolute -right-1 top-0 h-full w-24 hidden md:block pointer-events-none z-30" viewBox="0 0 160 1440" preserveAspectRatio="none" fill="#FDFBF7">
           <path d="M160,0 L160,1440 L80,1440 C160,1100 160,340 60,0 Z" />
         </svg>
 
+      </div>
+
+      {/* Mobile Platter Image - placed at root level so it sits above both sections */}
+      <div className="absolute left-1/2 top-[35vh] -translate-x-1/2 -translate-y-1/2 md:hidden z-30 w-90 max-w-[420px] pointer-events-none">
+        <img
+          src={platterImage}
+          alt="Authentic Indian Thali"
+
+          className="w-full h-auto object-contain drop-shadow-[0_15px_30px_rgba(0,0,0,0.4)]"
+        />
       </div>
 
       {/* 
@@ -171,18 +191,7 @@ export default function AuthPage({ initialMode = "login" }) {
       */}
       <div className="w-full flex-1 md:w-1/2 flex flex-col justify-center px-8 md:px-16 lg:px-24 py-6 pt-32 md:pt-12 md:py-12 bg-[#FDFBF7] relative z-10 transition-all duration-500 ease-in-out">
 
-        {/* Desktop Top Right Toggle */}
-        <div className="hidden md:flex justify-end absolute top-12 right-12 w-full">
-          <p className="text-gray-500 text-sm">
-            {mode === "login" ? "Don't have an account?" : "Already have an account?"}{" "}
-            <button
-              onClick={toggleMode}
-              className="text-[#FF6A00] font-bold hover:text-[#a3221b] transition-colors"
-            >
-              {mode === "login" ? "Register" : "Log In"}
-            </button>
-          </p>
-        </div>
+        {/* Desktop Top Right Toggle - removed per user request */}
 
         <div className="max-w-md w-full mx-auto md:ml-0 md:mt-12">
           <div className="mb-8">
@@ -206,7 +215,7 @@ export default function AuthPage({ initialMode = "login" }) {
               <button
                 type="button"
                 onClick={() => setShowEmailForm(true)}
-                className="w-full flex items-center justify-center gap-3 bg-white hover:bg-[#FAF9F6] text-[#2D2D2D] py-4 px-6 rounded-full text-[15px] font-bold shadow-sm border border-[#EBEBEB] transition-all duration-300 hover:shadow-md hover:border-[#D1D1D1] hover:-translate-y-0.5 active:scale-[0.98]"
+                className="w-full flex items-center justify-center gap-3 bg-[#FF6A00] text-white py-4 px-6 rounded-full text-[15px] font-bold shadow-sm transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98]"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
                 Sign in with Email
@@ -215,7 +224,7 @@ export default function AuthPage({ initialMode = "login" }) {
                 type="button"
                 onClick={handleGoogleAuth}
                 disabled={isLoading}
-                className="w-full flex items-center justify-center gap-3 bg-white hover:bg-[#FAF9F6] text-[#2D2D2D] py-4 px-6 rounded-full text-[15px] font-bold shadow-sm border border-[#EBEBEB] transition-all duration-300 hover:shadow-md hover:border-[#D1D1D1] hover:-translate-y-0.5 active:scale-[0.98] disabled:opacity-70 disabled:pointer-events-none"
+                className="w-full flex items-center justify-center gap-3 bg-white hover:bg-[#FAF9F6] text-[#2D2D2D] py-4 px-6 rounded-full text-[15px] font-bold shadow-sm border border-[#EBEBEB] transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98] disabled:opacity-70 disabled:pointer-events-none"
               >
                 <img src="/googlelogo354-ccx-200w.png" alt="Google" className="w-5 h-5" />
                 Continue with Google
@@ -224,12 +233,14 @@ export default function AuthPage({ initialMode = "login" }) {
                 <span className="text-sm font-semibold text-[#646464]">
                   Don't have an account?{" "}
                 </span>
+                {/* Native mobile Register text under Email Sign in - ensuring smooth animated underline */}
                 <button
                   type="button"
                   onClick={toggleMode}
-                  className="text-sm font-semibold text-[#FF6A00] hover:text-[#e65c00] transition-colors hover:underline"
+                  className="group text-sm font-bold text-[#FF6A00] hover:text-[#e65c00] transition-colors relative focus:outline-none"
                 >
-                  Sign up
+                  Register <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+                  <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#e65c00] transition-all duration-300 group-hover:w-full"></span>
                 </button>
               </div>
             </div>
@@ -287,9 +298,15 @@ export default function AuthPage({ initialMode = "login" }) {
                     className="w-full px-5 py-4 bg-white border border-[#EBEBEB] rounded-2xl focus:ring-2 focus:ring-[#FF6A00] focus:border-transparent transition-all outline-none text-[#2D2D2D] shadow-sm font-medium"
                     required
                   />
-                  <div className="text-right mt-2">
-                    <button type="button" className="text-sm font-semibold text-[#FF6A00] hover:text-[#e65c00] transition-colors">
-                      Forgot Password?
+                  <div className="mt-3 flex items-center justify-end gap-1">
+                    <span className="text-xs md:text-sm text-[#646464] font-medium">Don't have an account?</span>
+                    <button
+                      type="button"
+                      onClick={toggleMode}
+                      className="group text-xs md:text-sm font-bold text-[#FF6A00] hover:text-[#e65c00] transition-colors relative focus:outline-none"
+                    >
+                      Register
+                      <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-[#e65c00] transition-all duration-300 group-hover:w-full"></span>
                     </button>
                   </div>
                 </div>
@@ -303,7 +320,7 @@ export default function AuthPage({ initialMode = "login" }) {
                   type="submit"
                   disabled={isLoading}
                   text={mode === "login" ? "Sign In" : "Register"}
-                  className="w-full py-4 text-base tracking-wide shadow-[0_8px_16px_rgba(255,106,0,0.15)] border-2 border-[#FF6A00] hover:border-transparent bg-white text-[#2D2D2D]"
+                  className="w-full py-4 text-base tracking-wide bg-[#FF6A00] text-white border-0 shadow-[0_8px_16px_rgba(255,106,0,0.25)] hover:shadow-[0_12px_24px_rgba(255,106,0,0.35)]"
                 />
               </div>
             </form>
@@ -328,17 +345,8 @@ export default function AuthPage({ initialMode = "login" }) {
               Continue with Google
             </button>
 
-            <div className="text-center mt-6">
-              <span className="text-sm font-medium text-[#646464]">
-                {mode === "login" ? "Don't have an account? " : "Already have an account? "}
-              </span>
-              <button
-                type="button"
-                onClick={toggleMode}
-                className="text-sm font-bold text-[#FF6A00] hover:text-[#e65c00] transition-colors hover:underline"
-              >
-                {mode === "login" ? "Sign up" : "Log in"}
-              </button>
+            <div className="text-center mt-6 md:hidden">
+              {/* Removed desktop duplicate sign up link string */}
             </div>
           </div>
 
