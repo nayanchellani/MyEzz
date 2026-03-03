@@ -8,8 +8,7 @@ import SearchPage from "./components/SearchPage.jsx";
 import LandingPage from "./components/LandingPage.jsx";
 
 // Auth pages
-import Login from "./auth/Login.jsx";
-import Register from "./auth/Register.jsx";
+import AuthPage from "./auth/AuthPage.jsx";
 import OTPVerification from "./auth/OTPVerification.jsx";
 import ProtectedRoute from "./auth/ProtectedRoute.jsx";
 import { AuthProvider, useAuth } from "./auth/AuthContext.jsx";
@@ -47,8 +46,8 @@ function App() {
         <Route path="/welcome" element={<LandingPage />} />
         
         {/* Public routes */}
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<AuthPage initialMode="login" />} />
+        <Route path="/register" element={<AuthPage initialMode="register" />} />
         <Route path="/otp-verify" element={<OTPVerification />} />
 
         {/* Protected routes */}
